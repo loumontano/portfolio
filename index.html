@@ -1,0 +1,516 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lourdes Montano — TPM Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@charset "utf-8";
+
+*, ::before, ::after { box-sizing: border-box; margin: 0px; padding: 0px; }
+
+:root { --bg: #1C1C1E; --surface: #242426; --surface-2: #2C2C2E; --border: rgba(255,255,255,0.08); --text: #FFFFFF; --text-mid: rgba(255,255,255,0.65); --text-low: rgba(255,255,255,0.35); --grad: linear-gradient(90deg, #4285F4, #34A853); --blue: #4285F4; --green: #34A853; --yellow: #FBBC04; --red: #EA4335; --purple: #9B59B6; }
+
+html { scroll-behavior: smooth; }
+
+body { font-family: "Plus Jakarta Sans", sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+.grad-line { height: 3px; background: var(--grad); width: 100%; }
+
+nav { position: fixed; top: 0px; left: 0px; right: 0px; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0px 48px; height: 63px; background: rgba(28, 28, 30, 0.88); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); border-top: 3px solid transparent; border-image: linear-gradient(90deg, rgb(255, 140, 0), rgb(255, 45, 155), rgb(124, 58, 237)) 1 / 1 / 0 stretch; }
+
+.nav-logo { font-family: "Plus Jakarta Sans", sans-serif; font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: 0.04em; text-decoration: none; }
+
+.nav-links { display: flex; gap: 32px; list-style: none; }
+
+.nav-links a { font-size: 13px; font-weight: 700; color: rgb(255, 255, 255); text-decoration: none; transition: color 0.2s; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.nav-links a:hover { color: rgba(255, 255, 255, 0.7); }
+
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 48px 80px; max-width: 1140px; margin: 0px auto; }
+
+.hero-inner { max-width: 780px; }
+
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--text-low); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; }
+
+.eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, rgb(66, 133, 244), rgb(52, 168, 83)); }
+
+.hero h1 { font-family: "Plus Jakarta Sans", sans-serif; font-size: clamp(44px, 6.5vw, 76px); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; color: var(--text); margin-bottom: 12px; }
+
+.hero h1 .grad-text { background: linear-gradient(90deg, rgb(255, 140, 0), rgb(255, 45, 155), rgb(124, 58, 237)) text; -webkit-text-fill-color: transparent; }
+
+.hero-sub { font-size: 18px; font-weight: 300; color: var(--text-mid); max-width: 600px; line-height: 1.7; margin-bottom: 40px; margin-top: 20px; }
+
+.hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; }
+
+.chip { font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 100px; border: 1px solid var(--border); color: var(--text-mid); background: var(--surface); letter-spacing: 0.01em; }
+
+.chip.blue { border-color: rgba(66, 133, 244, 0.4); color: rgb(122, 179, 248); background: rgba(66, 133, 244, 0.08); }
+
+.chip.green { border-color: rgba(52, 168, 83, 0.4); color: rgb(111, 207, 151); background: rgba(52, 168, 83, 0.08); }
+
+.chip.amber { border-color: rgba(251, 188, 4, 0.4); color: rgb(251, 188, 4); background: rgba(251, 188, 4, 0.08); }
+
+.chip.purple { border-color: rgba(155, 89, 182, 0.4); color: rgb(195, 155, 228); background: rgba(155, 89, 182, 0.08); }
+
+.hero-cta { display: inline-flex; align-items: center; gap: 8px; position: relative; padding: 13px 28px; border-radius: 100px; font-size: 14px; font-weight: 600; color: var(--text); text-decoration: none; background: var(--surface-2); border: 1px solid var(--border); transition: background 0.2s, transform 0.15s; overflow: hidden; }
+
+.hero-cta::before { content: ""; position: absolute; inset: 0px; border-radius: 100px; padding: 1px; background: linear-gradient(90deg, rgb(255, 140, 0), rgb(255, 45, 155), rgb(124, 58, 237)); mask: linear-gradient(rgb(255, 255, 255) 0px, rgb(255, 255, 255) 0px) content-box exclude, linear-gradient(rgb(255, 255, 255) 0px, rgb(255, 255, 255) 0px); }
+
+.hero-cta:hover { background: var(--surface); transform: translateY(-1px); }
+
+.section { padding: 100px 48px; max-width: 1140px; margin: 0px auto; }
+
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-low); margin-bottom: 12px; }
+
+.section-title { font-family: "Plus Jakarta Sans", sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.025em; color: var(--text); margin-bottom: 56px; line-height: 1.1; }
+
+.divider { border-right-width: medium; border-bottom-width: medium; border-left-width: medium; border-right-style: none; border-bottom-style: none; border-left-style: none; border-right-color: currentcolor; border-bottom-color: currentcolor; border-left-color: currentcolor; border-image: initial; border-top: 1px solid var(--border); margin: 0px 48px; }
+
+.case { display: grid; grid-template-columns: 300px 1fr; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 20px; background: var(--surface); transition: border-color 0.2s, box-shadow 0.2s; }
+
+.case:hover { box-shadow: rgba(0, 0, 0, 0.4) 0px 16px 48px; }
+
+.case-meta { padding: 36px 32px; background: var(--surface-2); border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: 16px; }
+
+.case-num { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); }
+
+.case-co { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+.case-title { font-family: "Plus Jakarta Sans", sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); line-height: 1.2; }
+
+.case-role { font-size: 12px; color: rgba(255, 255, 255, 0.8); line-height: 1.5; }
+
+.case-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.stack-pill { font-size: 10px; font-weight: 500; padding: 3px 9px; border-radius: 100px; border: 1px solid var(--border); color: rgba(255, 255, 255, 0.8); letter-spacing: 0.03em; }
+
+.case-body { padding: 36px 32px; display: flex; flex-direction: column; gap: 24px; }
+
+.block-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); margin-bottom: 7px; }
+
+.block p { font-size: 14px; line-height: 1.75; color: rgba(255, 255, 255, 0.8); }
+
+.impact-row { display: flex; gap: 28px; flex-wrap: wrap; }
+
+.impact-stat { display: flex; flex-direction: column; gap: 3px; }
+
+.impact-num { font-family: "Plus Jakarta Sans", sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+
+.impact-lbl { font-size: 11px; color: rgba(255, 255, 255, 0.8); }
+
+.c-blue .case-co, .c-blue .impact-num { color: rgb(122, 179, 248); }
+
+.c-green .case-co, .c-green .impact-num { color: rgb(111, 207, 151); }
+
+.c-amber .case-co, .c-amber .impact-num { color: rgb(251, 188, 4); }
+
+.c-purple .case-co, .c-purple .impact-num { color: rgb(195, 155, 228); }
+
+.c-blue { border-top: 2px solid rgb(66, 133, 244); }
+
+.c-green { border-top: 2px solid rgb(52, 168, 83); }
+
+.c-amber { border-top: 2px solid rgb(251, 188, 4); }
+
+.c-purple { border-top: 2px solid rgb(155, 89, 182); }
+
+.c-blue:hover { border: 2px solid rgb(66, 133, 244); box-shadow: rgba(66, 133, 244, 0.15) 0px 0px 24px; }
+
+.c-green:hover { border: 2px solid rgb(52, 168, 83); box-shadow: rgba(52, 168, 83, 0.15) 0px 0px 24px; }
+
+.c-amber:hover { border: 2px solid rgb(251, 188, 4); box-shadow: rgba(251, 188, 4, 0.15) 0px 0px 24px; }
+
+.c-purple:hover { border: 2px solid rgb(155, 89, 182); box-shadow: rgba(155, 89, 182, 0.15) 0px 0px 24px; }
+.c-orange .case-co, .c-orange .impact-num { color: rgb(251, 153, 89); }
+.c-orange { border-top: 2px solid rgb(251, 140, 0); }
+.c-orange:hover { border: 2px solid rgb(251, 140, 0); box-shadow: rgba(251, 140, 0, 0.15) 0px 0px 24px; }
+.c-red .case-co, .c-red .impact-num { color: rgb(234, 122, 111); }
+.c-red { border-top: 2px solid rgb(234, 67, 53); }
+.c-red:hover { border: 2px solid rgb(234, 67, 53); box-shadow: rgba(234, 67, 53, 0.15) 0px 0px 24px; }
+
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+
+.about-text p { font-size: 15px; line-height: 1.8; color: var(--text-mid); margin-bottom: 18px; }
+
+.about-text p:last-child { margin-bottom: 0px; }
+
+.about-text strong { color: var(--text); font-weight: 600; }
+
+.about-stats { display: flex; flex-direction: column; gap: 0px; }
+
+.stat-row { display: flex; align-items: baseline; gap: 20px; padding: 20px 0px; border-bottom: 1px solid var(--border); }
+
+.stat-row:last-child { border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor; }
+
+.stat-num { font-family: "Plus Jakarta Sans", sans-serif; font-size: 38px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; min-width: 96px; background: linear-gradient(90deg, rgb(255, 140, 0), rgb(255, 45, 155), rgb(124, 58, 237)) text; -webkit-text-fill-color: transparent; }
+
+.stat-desc { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
+
+.skills-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+
+.skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+
+.skill-card-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px; }
+
+.skill-list { display: flex; flex-direction: column; gap: 10px; }
+
+.skill-item { font-size: 13px; color: var(--text-mid); }
+
+footer { border-top: 1px solid var(--border); padding: 36px 48px; display: flex; justify-content: space-between; align-items: center; max-width: 1140px; margin: 0px auto; }
+
+footer p { font-size: 13px; color: var(--text-low); }
+
+.footer-links { display: flex; gap: 24px; }
+
+.footer-links a { font-size: 13px; font-weight: 500; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
+
+.footer-links a:hover { color: var(--text); }
+
+.shapes-bg { position: absolute; bottom: 0px; left: 0px; right: 0px; height: 200px; overflow: hidden; pointer-events: none; }
+
+.shape { position: absolute; bottom: -30px; border-radius: 50%; border: 2px solid transparent; }
+
+.hero-wrapper { position: relative; overflow: hidden; }
+
+.hero-shapes { position: absolute; bottom: 40px; right: -60px; display: flex; gap: 24px; opacity: 0.5; pointer-events: none; }
+
+.hs { width: 120px; height: 120px; border: 2px solid; flex-shrink: 0; }
+
+.hs-diamond { border-color: rgb(66, 133, 244); transform: rotate(45deg); border-radius: 12px; }
+
+.hs-rounded { border-color: rgb(52, 168, 83); border-radius: 24px; }
+
+.hs-circle { border-color: rgb(251, 188, 4); border-radius: 50%; }
+
+.hs-pill { border-color: rgb(234, 67, 53); border-radius: 60px; width: 160px; }
+
+@media (max-width: 768px) {
+  nav { padding: 0px 20px; }
+  .nav-links { display: none; }
+  .hero, .section { padding: 80px 20px 60px; }
+  .case { grid-template-columns: 1fr; }
+  .case-meta { border-right-width: medium; border-right-style: none; border-right-color: currentcolor; border-bottom: 1px solid var(--border); }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .skills-columns { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
+  .hero-shapes { display: none; }
+  .divider { margin: 0px 20px; }
+}
+
+</style>
+</head><body>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://loumontano.vercel.app/#">LOURDES MONTANO / TPM</a>
+  <ul class="nav-links">
+    <li><a href="https://loumontano.vercel.app/#work">Work</a></li>
+    <li><a href="https://loumontano.vercel.app/#about">About</a></li>
+    <li><a href="https://www.linkedin.com/in/lourdes-montano" target="_blank">LinkedIn</a></li>
+    <li><a href="mailto:montano.lourdes@gmail.com">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrapper">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Technical Program Manager · Washington, DC
+      </div>
+      <h1>Shipping programs at the edge of<br><span class="grad-text">design, engineering</span><br>and AI.</h1>
+      <p class="hero-sub">13+ years bridging creative and technical teams at Google and Meta. I find the gaps, build the plan, and ship — using AI as an enablement layer across the full program lifecycle.</p>
+      <div class="hero-chips">
+        <span class="chip blue">AI Enablement</span>
+        <span class="chip green">Cross-functional Execution</span>
+        <span class="chip amber">Web Program Management</span>
+        <span class="chip blue">Design → Engineering</span>
+      </div>
+      <a class="hero-cta" href="https://loumontano.vercel.app/#work">See the work →</a>
+    </div>
+  </div>
+  </div>
+
+<hr class="divider">
+
+<!-- WORK -->
+<div class="section" id="work">
+  <p class="section-label">Selected Work</p>
+  <h2 class="section-title">Five programs.<br>Real constraints. Measurable outcomes.</h2>
+
+  <!-- CASE 5 -->
+  <div class="case c-amber">
+    <div class="case-meta">
+      <span class="case-num">01 / Meta · About Instagram</span>
+      <span class="case-co">Meta</span>
+      <h3 class="case-title">IG Web Design System</h3>
+      <p class="case-role">TPM &amp; program lead — authored the roadmap priority, ran a 5-phase execution across design, engineering, and brand</p>
+      <div class="case-stack">
+        <span class="stack-pill">Figma</span><span class="stack-pill">Design Tokens</span>
+        <span class="stack-pill">WCAG / Accessibility</span><span class="stack-pill">Component Architecture</span>
+        <span class="stack-pill">MCDS Alignment</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="block">
+        <p class="block-label">The Problem</p>
+        <p>About Instagram had no design system on its Consumer website — every build started from scratch, with no shared components, no documented accessibility or SEO standards, and no consistent path from Figma to code, every launch was done on a page-by-page basis with no scalability. Build costs and time compounded with every release, with no consolidated source of truth for Instagram's Consumer Experience design language — and no way to know if a component would even hold up on the next page it touched.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">What I Built</p>
+        <p>Authored and drove the IG Web Design System as a P1 2026 roadmap priority — the first design system for any Instagram web domain. Ran a 5-phase execution: audit and gap analysis against Meta's Centralized Design System (MCDS), module ownership assignment, a multi-stage review (internal, MCDS team, Brand), full documentation (usage guidelines, WCAG accessibility specs, dev handoff notes), and a final team-wide approval gate. Aligned naming conventions, spacing, variants, and accessibility standards to MCDS so the system would scale beyond one team, and framed the business case for reuse across IG Business and IG Creators.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">Impact</p>
+        <div class="impact-row">
+          <div class="impact-stat">
+            <span class="impact-num">1st</span>
+            <span class="impact-lbl">design system shipped for any Instagram web domain</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-num">2</span>
+            <span class="impact-lbl">surfaces positioned for cross-adoption (IG Business, IG Creators)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 1 -->
+  <div class="case c-blue">
+    <div class="case-meta">
+      <span class="case-num">02 / Meta · About Instagram</span>
+      <span class="case-co">Meta</span>
+      <h3 class="case-title">Web Experiment Tracker</h3>
+      <p class="case-role">TPM &amp; sole builder — identified the gap, designed the solution, built the tool</p>
+      <div class="case-stack">
+        <span class="stack-pill">React</span><span class="stack-pill">Relay</span><span class="stack-pill">GraphQL</span>
+        <span class="stack-pill">Ent Framework</span><span class="stack-pill">MySQL</span>
+        <span class="stack-pill">Access Control</span><span class="stack-pill">Claude (AI build)</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="block">
+        <p class="block-label">The Problem</p>
+        <p>Multiple teams running A/B tests and surveys across consumer marketing websites had no shared source of truth. Experiments conflicted, stakeholders had no visibility, and status lived in scattered spreadsheets. Gaps in experiment coverage went undetected until they caused production issues.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">What I Built</p>
+        <p>A CRUD internal tool giving 3–5 teams a single, unified view of live experiment status across sites. Features include a list view and Gantt view, filtering by site and status, and access-controlled reads and writes — built entirely with AI as the primary development layer, from data model design to frontend queries. I secured buy-in from the web platform team to support with code reviews, which enabled the tool to launch.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">Impact</p>
+        <div class="impact-row">
+          <div class="impact-stat">
+            <span class="impact-num">3–5</span>
+            <span class="impact-lbl">teams with unified visibility</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-num">0</span>
+            <span class="impact-lbl">conflicting experiments post-launch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 2 -->
+  <div class="case c-green">
+    <div class="case-meta">
+      <span class="case-num">03 / Meta · About Instagram</span>
+      <span class="case-co">Meta</span>
+      <h3 class="case-title">AI-Powered Content Update Automation</h3>
+      <p class="case-role">TPM &amp; AI systems designer — identified workflow, designed automation, documented outcomes</p>
+      <div class="case-stack">
+        <span class="stack-pill">AI / Claude</span><span class="stack-pill">CMS Integration</span>
+        <span class="stack-pill">XML Templating</span><span class="stack-pill">Workflow Design</span>
+        <span class="stack-pill">Chat Notifications</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="block">
+        <p class="block-label">The Problem</p>
+        <p>Content updates required manual diff reviews — a team member had to read each change, determine what CMS XML to write, and paste it in. At 15 minutes per task, this was a significant recurring drain with high error potential and no scalability path. The bottleneck often led to outdated content on the marketing website, directly impacting user engagement — one of the team's primary KPIs.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">What I Built</p>
+        <p>An AI-driven automation that detects content changes requiring CMS updates, generates the ready-to-paste XML, and creates a ticket — removing the entire manual review step. I also built a chat notification system that alerts the team the moment an update is available, and a weekly sweep to catch anything that may have been missed. The team goes from receiving a change to merging it in minutes, not quarter-hours.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">Impact</p>
+        <div class="impact-row">
+          <div class="impact-stat">
+            <span class="impact-num">85%</span>
+            <span class="impact-lbl">reduction in task time</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-num">15→2</span>
+            <span class="impact-lbl">minutes per task to production</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 3 -->
+  <div class="case c-orange">
+    <div class="case-meta">
+      <span class="case-num">04 / Meta · About Instagram</span>
+      <span class="case-co">Meta</span>
+      <h3 class="case-title">AI-Driven Web Development Planning</h3>
+      <p class="case-role">TPM — redesigned the kickoff-to-implementation pipeline using AI at every phase</p>
+      <div class="case-stack">
+        <span class="stack-pill">AI / Claude</span><span class="stack-pill">Figma</span>
+        <span class="stack-pill">Ticket Systems</span><span class="stack-pill">Creative Brief</span>
+        <span class="stack-pill">Eng Planning</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="block">
+        <p class="block-label">The Problem</p>
+        <p>Web development cycles were long and front-loaded with manual planning work. Design handoffs to engineering required extensive TPM translation, and ticket creation was a time-intensive bottleneck that delayed build starts.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">What I Built</p>
+        <p>An end-to-end AI-assisted planning pipeline: stakeholder meeting → AI-generated creative brief → Figma-to-implementation plan → AI-structured engineering ticket set. Engineers receive a complete task breakdown they can execute by feeding directly into AI tooling — with tasks already fully detailed, implementation time was reduced significantly by eliminating the back-and-forth typically needed to clarify scope and requirements.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">Impact</p>
+        <div class="impact-row">
+          <div class="impact-stat">
+            <span class="impact-num">3mo→5wk</span>
+            <span class="impact-lbl">web development build time</span>
+          </div>
+          <div class="impact-stat">
+            <span class="impact-num">1wk→4hr</span>
+            <span class="impact-lbl">planning time per build</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 4 -->
+  <div class="case c-purple">
+    <div class="case-meta">
+      <span class="case-num">05 / Google Ads via R/GA</span>
+      <span class="case-co">Google · R/GA</span>
+      <h3 class="case-title">SSO Personalization on Google Ads Consumer Site</h3>
+      <p class="case-role">Technical Lead, 2022 — cross-functional program across product, engineering, legal, and privacy</p>
+      <div class="case-stack">
+        <span class="stack-pill">GAPI</span><span class="stack-pill">First-Party Auth</span>
+        <span class="stack-pill">Google People API</span><span class="stack-pill">OAuth 2.0</span>
+        <span class="stack-pill">A/B Testing</span><span class="stack-pill">Privacy / Legal</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="block">
+        <p class="block-label">The Problem</p>
+        <p>The Google Ads consumer site served a one-size-fits-all experience, missing a key goal to personalize content, surface product recommendations, and persist user settings via Single Sign-On — with a hard technical constraint: the site ran on a static server with no native first-party cookie support.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">What I Led</p>
+        <p>Designed and shipped the Crawl phase of a three-phase personalization roadmap: an SSO card integration using GAPI, First-Party Authentication, and the Google People API to authenticate users and surface profile data — navigating legal, privacy, a11y, and multi-country/language requirements throughout. All phases gated by A/B testing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <p class="section-label">About</p>
+  <h2 class="section-title">Designer turned engineer<br>turned program lead.</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I started as a graphic designer — <strong>B.A. from the University of Buenos Aires</strong> — then taught myself to code, spent years as a frontend engineer, and eventually moved into the role that makes the most use of all of it: Technical Program Manager.</p>
+      <p>That arc means I can read a Figma file, review a pull request, write a technical brief, and run a cross-functional kickoff — without switching hats. I've spent most of my career embedded in large consumer tech environments — <strong>~8 years across Google properties</strong> via R/GA and currently at <strong>Meta's About Instagram team</strong> via Sia Partners.</p>
+      <p>My current focus is AI-powered tooling: building internal automation, designing AI-assisted workflows, and shipping programs where AI is the primary build layer — not a feature, but the foundation. I also lead design systems work end to end — from roadmap and Figma architecture through accessibility documentation and org-wide adoption — making sure standards are clear, well documented, and consistently applied across teams.</p>
+      <p>I'm bilingual in <strong>English and Spanish</strong>, based in the <strong>Washington, DC area</strong>, and actively looking for my next TPM or PM role in AI-forward consumer tech.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-row">
+        <span class="stat-num">13+</span>
+        <span class="stat-desc">years spanning design, frontend engineering, and technical program management</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-num">2</span>
+        <span class="stat-desc">major consumer platforms — Google and Meta — at scale</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-num">85%</span>
+        <span class="stat-desc">documented time reduction on AI automation rollout at Meta</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-num">1st</span>
+        <span class="stat-desc">design system led end-to-end for an Instagram web domain</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <p class="section-label">Core Skills</p>
+  <h2 class="section-title">What I bring<br>to every program.</h2>
+  <div class="skills-columns">
+    <div class="skill-card">
+      <p class="skill-card-label" style="color:#7AB3F8;">AI Enablement &amp; Launches</p>
+      <div class="skill-list">
+        <span class="skill-item">AI Workflow Adoption</span>
+        <span class="skill-item">Launch Playbooks &amp; Frameworks</span>
+        <span class="skill-item">Automation Pipelines</span>
+        <span class="skill-item">Model Capability Translation</span>
+        <span class="skill-item">Prompt Engineering</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <p class="skill-card-label" style="color:#6FCF97;">Program Management</p>
+      <div class="skill-list">
+        <span class="skill-item">End-to-End Launch Management</span>
+        <span class="skill-item">Roadmapping · OKRs · Agile</span>
+        <span class="skill-item">Risk &amp; Dependency Management</span>
+        <span class="skill-item">Milestone Tracking</span>
+        <span class="skill-item">Budget &amp; Vendor Management</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <p class="skill-card-label" style="color:#FBBC04;">Technical</p>
+      <div class="skill-list">
+        <span class="skill-item">HTML / CSS / JavaScript</span>
+        <span class="skill-item">React · GraphQL · XML</span>
+        <span class="skill-item">A/B Testing · SEO · GCP</span>
+        <span class="skill-item">CMS · Accessibility</span>
+        <span class="skill-item">Jira · Asana · Figma</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <p class="skill-card-label" style="color:#EA7A6F;">Design Systems</p>
+      <div class="skill-list">
+        <span class="skill-item">Design Tokens &amp; Component Architecture</span>
+        <span class="skill-item">Figma-to-Code Handoff</span>
+        <span class="skill-item">WCAG Accessibility Documentation</span>
+        <span class="skill-item">Centralized System Alignment</span>
+        <span class="skill-item">Cross-surface Adoption</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Lourdes Montano</p>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/lourdes-montano" target="_blank">LinkedIn →</a>
+    <a href="mailto:montano.lourdes@gmail.com">montano.lourdes@gmail.com →</a>
+  </div>
+</footer>
+
+
+
+</body></html>
