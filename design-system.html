@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lourdes Montano — LMDS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1C1C1E; --surface: #242426; --surface-2: #2C2C2E;
+    --border: rgba(255,255,255,0.08); --border-strong: rgba(255,255,255,0.16);
+    --text: #FFFFFF; --text-mid: rgba(255,255,255,0.65); --text-low: rgba(255,255,255,0.35);
+    --blue: #4285F4; --green: #34A853; --yellow: #FBBC04; --red: #EA4335; --purple: #9B59B6; --orange: #FB8C00;
+    --grad: linear-gradient(90deg, #FF8C00, #FF2D9B, #7C3AED);
+    --mono: "Roboto Mono", monospace;
+    --sans: "Plus Jakarta Sans", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: var(--sans); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration:none; }
+
+  .docbar { position: sticky; top:0; z-index: 50; display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 48px; background: rgba(28,28,30,0.9); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border); border-top: 3px solid transparent;
+    border-image: var(--grad) 1; font-family: var(--mono); }
+  .docbar-left { display:flex; align-items:center; gap:14px; font-size:12px; }
+  .docbar-badge { font-size:10px; padding:3px 8px; border-radius:4px; background: var(--surface-2); color: var(--text-mid); border:1px solid var(--border); letter-spacing:.04em; }
+  .docbar-nav { display:flex; gap:26px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-low); }
+  .docbar-nav a:hover { color: var(--text-mid); }
+
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 48px; }
+
+  .cover { padding: 90px 0 70px; border-bottom: 1px solid var(--border); }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing:.1em; text-transform:uppercase; color: var(--text-low); margin-bottom:18px; }
+  .cover h1 { font-size: clamp(38px, 5.5vw, 64px); font-weight:700; letter-spacing:-0.02em; line-height:1.05; margin: 0 0 14px; }
+  .cover-sub { font-size:16px; font-weight:300; color: var(--text-mid); max-width: 600px; line-height:1.7; margin-bottom:26px; }
+  .version-line { font-family: var(--mono); font-size:12px; color: var(--text-low); display:flex; gap:18px; flex-wrap:wrap; margin-bottom: 30px;}
+  .version-line b { color: var(--text-mid); font-weight:500; }
+  .cover-links { display:flex; gap:12px; flex-wrap:wrap; }
+  .doc-link { font-size:13px; font-weight:600; padding: 11px 22px; border-radius:100px; border:1px solid var(--border); color: var(--text); background: var(--surface-2); }
+  .doc-link.primary { background: var(--surface); border-color: var(--border-strong); }
+
+  .doc-section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+  .doc-section-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:10px; }
+  .doc-title { font-size: clamp(24px,3vw,32px); font-weight:700; letter-spacing:-0.02em; margin:0; }
+  .doc-index { font-family: var(--mono); font-size:11px; color: var(--text-low); letter-spacing:.06em; }
+  .doc-desc { font-size:14px; color: var(--text-mid); max-width: 620px; line-height:1.7; margin: 0 0 34px; }
+
+  .token-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap:14px; }
+  .token { border:1px solid var(--border); border-radius:10px; overflow:hidden; background: var(--surface); }
+  .token-swatch { height:56px; }
+  .token-meta { padding: 10px 12px; font-family: var(--mono); }
+  .token-name { font-size:11px; color: var(--text); display:block; }
+  .token-value { font-size:10px; color: var(--text-low); display:block; margin-top:3px; }
+
+  .type-row { display:grid; grid-template-columns: 90px 1fr 200px; align-items:center; gap:20px; padding:20px 0; border-top:1px solid var(--border); }
+  .type-row:first-of-type { border-top:none; }
+  .type-tag { font-family: var(--mono); font-size:11px; color: var(--text-low); }
+  .type-spec { font-family: var(--mono); font-size:11px; color: var(--text-mid); text-align:right; }
+
+  /* component library grid */
+  .lib-grid { display:grid; gap:16px; }
+  .lib-card { display:grid; grid-template-columns: 210px 1fr auto; align-items:center; gap:20px;
+    border:1px solid var(--border); border-radius:14px; padding: 20px 24px; background: var(--surface);
+    border-left: 3px solid var(--accent, var(--blue)); transition: border-color .2s; }
+  .lib-card:hover { border-color: var(--border-strong); }
+  .lib-index { font-family: var(--mono); font-size:11px; color: var(--text-low); }
+  .lib-name { font-size:16px; font-weight:700; letter-spacing:-0.01em; margin: 4px 0 6px; }
+  .lib-role { font-size:12px; color: var(--text-mid); line-height:1.5; }
+  .lib-stack { display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
+  .lib-pill { font-family: var(--mono); font-size:9px; padding: 3px 8px; border-radius:100px; border:1px solid var(--border); color: var(--text-low); }
+  .lib-impact { text-align:right; font-family: var(--mono); }
+  .lib-impact-num { font-size:22px; font-weight:700; background: var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; display:block; }
+  .lib-impact-lbl { font-size:10px; color: var(--text-low); max-width:130px; display:block; margin-top:2px; }
+
+  /* anatomy specimen (kept from concept) */
+  .specimen { position:relative; padding: 60px 40px; border:1px dashed var(--border-strong); border-radius:16px; margin: 40px 0; }
+  .specimen-label { position:absolute; top:-11px; left:24px; background: var(--bg); padding:0 10px; font-family: var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color: var(--text-low); }
+  .spec-case { display:grid; grid-template-columns: 260px 1fr; border:1px solid var(--border); border-radius:16px; overflow:hidden; background: var(--surface); border-top: 2px solid var(--yellow); max-width: 780px; margin: 0 auto; position:relative; }
+  .spec-meta { padding: 30px 26px; background: var(--surface-2); border-right:1px solid var(--border); display:flex; flex-direction:column; gap:14px; }
+  .spec-num { font-family: var(--mono); font-size:10px; color: var(--yellow); letter-spacing:.06em; }
+  .spec-co { font-size:11px; color: var(--text-low); }
+  .spec-title { font-size:19px; font-weight:700; letter-spacing:-0.02em; margin:0; }
+  .spec-role { font-size:12px; color: var(--text-mid); line-height:1.5; }
+  .spec-body { padding: 28px 26px; }
+  .spec-block-label { font-family: var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em; color: var(--text-low); margin: 0 0 6px; }
+  .callout { position:absolute; font-family: var(--mono); font-size:10px; color: var(--text-low); white-space:nowrap; display:none; }
+  @media (min-width: 980px) { .callout { display:block; } }
+  .callout::before { content:""; position:absolute; height:1px; background: var(--border-strong); }
+  .c1 { top: 30px; left: -6px; transform: translateX(-100%); text-align:right; }
+  .c1::before { top:8px; right:-64px; width:60px; }
+  .c2 { top: 88px; left: -6px; transform: translateX(-100%); text-align:right; }
+  .c2::before { top:8px; right:-64px; width:60px; }
+  .c3 { top: 30px; right: -6px; transform: translateX(100%); }
+  .c3::before { top:8px; left:-64px; width:60px; }
+  .c4 { bottom: 24px; right: -6px; transform: translateX(100%); }
+  .c4::before { bottom:8px; left:-64px; width:60px; }
+
+  /* about / skills */
+  .about-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+  .about-text p { font-size: 15px; line-height: 1.8; color: var(--text-mid); margin-bottom: 16px; }
+  .stat-row { display:flex; align-items:baseline; gap:18px; padding:16px 0; border-bottom:1px solid var(--border); }
+  .stat-num { font-family: var(--mono); font-size:26px; font-weight:700; min-width:80px; background: var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .stat-desc { font-size:12px; color: var(--text-mid); line-height:1.5; }
+
+  footer { padding: 40px 48px; text-align:center; font-family: var(--mono); font-size:11px; color: var(--text-low); }
+
+  @media (max-width: 860px) {
+    .lib-card { grid-template-columns: 1fr; }
+    .lib-impact { text-align:left; }
+    .spec-case { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="docbar">
+    <div class="docbar-left">
+      <span>LMDS</span>
+      <span class="docbar-badge">v1.0.0</span>
+    </div>
+    <div class="docbar-nav">
+      <a href="#color">Color</a><a href="#type">Type</a><a href="#components">Components</a><a href="#about">About</a>
+      <a href="https://loumontano.vercel.app/" style="color:var(--text-mid);">← Portfolio</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="cover">
+      <div class="eyebrow">Personal Design System — Documentation</div>
+      <h1>Lourdes Montano</h1>
+      <p class="cover-sub">Technical Program Manager working at the intersection of design and engineering. This page documents my work the way I'd document any system I ship — tokens, type, and every program as a specimen.</p>
+      <div class="version-line">
+        <span><b>Version</b> 1.0.0</span>
+        <span><b>Last updated</b> Jul 2026</span>
+        <span><b>Maintainer</b> L. Montano</span>
+        <span><b>Status</b> Stable</span>
+      </div>
+      <div class="cover-links">
+        <a class="doc-link primary" href="#components">View components</a>
+        <a class="doc-link" href="mailto:montano.lourdes@gmail.com">Contact</a>
+      </div>
+    </section>
+
+    <section class="doc-section" id="color">
+      <div class="doc-section-head"><h2 class="doc-title">Color</h2><span class="doc-index">01 / Foundations</span></div>
+      <p class="doc-desc">Core neutrals plus five accent tokens, one per case study — used to differentiate program areas at a glance.</p>
+      <div class="token-grid">
+        <div class="token"><div class="token-swatch" style="background:var(--bg)"></div><div class="token-meta"><span class="token-name">bg</span><span class="token-value">#1C1C1E</span></div></div>
+        <div class="token"><div class="token-swatch" style="background:var(--surface)"></div><div class="token-meta"><span class="token-name">surface</span><span class="token-value">#242426</span></div></div>
+        <div class="token"><div class="token-swatch" style="background:var(--surface-2)"></div><div class="token-meta"><span class="token-name">surface-2</span><span class="token-value">#2C2C2E</span></div></div>
+        <div class="token"><div class="token-swatch" style="background:var(--blue)"></div><div class="token-meta"><span class="token-name">blue</span><span class="token-value">#4285F4</span></div></div>
+        <div class="token"><div class="token-swatch" style="background:var(--green)"></div><div class="token-meta"><span class="token-name">green</span><span class="token-value">#34A853</span></div></div>
+        <div class="token"><div class="token-swatch" style="background:var(--yellow)"></div><div class="token-meta"><span class="token-name">yellow</span><span class="token-value">#FBBC04</span></div></div>
+        <div class="token"><div class="token-swatch" style="background:var(--orange)"></div><div class="token-meta"><span class="token-name">orange</span><span class="token-value">#FB8C00</span></div></div>
+        <div class="token"><div class="token-swatch" style="background:var(--purple)"></div><div class="token-meta"><span class="token-name">purple</span><span class="token-value">#9B59B6</span></div></div>
+        <div class="token"><div class="token-swatch" style="background:var(--grad)"></div><div class="token-meta"><span class="token-name">gradient</span><span class="token-value">brand accent</span></div></div>
+      </div>
+    </section>
+
+    <section class="doc-section" id="type">
+      <div class="doc-section-head"><h2 class="doc-title">Type scale</h2><span class="doc-index">02 / Foundations</span></div>
+      <p class="doc-desc">One typeface, four weights, used consistently across every role.</p>
+      <div class="type-row"><span class="type-tag">Cover</span><span style="font-size:44px; font-weight:700; letter-spacing:-0.02em;">Aa</span><span class="type-spec">Jakarta Sans / 700 / 64px</span></div>
+      <div class="type-row"><span class="type-tag">Section</span><span style="font-size:30px; font-weight:700; letter-spacing:-0.02em;">Aa</span><span class="type-spec">Jakarta Sans / 700 / 32px</span></div>
+      <div class="type-row"><span class="type-tag">Component</span><span style="font-size:20px; font-weight:700; letter-spacing:-0.02em;">Aa</span><span class="type-spec">Jakarta Sans / 700 / 22px</span></div>
+      <div class="type-row"><span class="type-tag">Body</span><span style="font-size:15px; font-weight:400; color: var(--text-mid);">Aa</span><span class="type-spec">Jakarta Sans / 400 / 15px</span></div>
+      <div class="type-row"><span class="type-tag">Caption</span><span style="font-family:var(--mono); font-size:11px; color: var(--text-low);">Aa</span><span class="type-spec">Roboto Mono / 400 / 11px</span></div>
+    </section>
+
+    <section class="doc-section" id="components">
+      <div class="doc-section-head"><h2 class="doc-title">Component anatomy</h2><span class="doc-index">03 / Components</span></div>
+      <p class="doc-desc">Every case study card follows this structure. Annotated below using the IG Web Design System entry.</p>
+
+      <div class="specimen">
+        <span class="specimen-label">Anatomy</span>
+        <div class="spec-case">
+          <span class="callout c1">accent — token: yellow</span>
+          <span class="callout c2">case-num — mono / 10px</span>
+          <span class="callout c3">title — Jakarta Sans 700</span>
+          <span class="callout c4">impact — gradient text</span>
+          <div class="spec-meta">
+            <span class="spec-num">01 / Meta · About Instagram</span>
+            <span class="spec-co">Meta</span>
+            <h3 class="spec-title">IG Web Design System</h3>
+            <p class="spec-role">TPM &amp; program lead — authored the roadmap priority, ran a 5-phase execution</p>
+          </div>
+          <div class="spec-body">
+            <p class="spec-block-label">Impact</p>
+            <p style="font-size:26px; font-weight:700; background: var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:0;">1st</p>
+            <p style="margin-top:-6px; font-size:13px; color:var(--text-mid);">design system shipped for any Instagram web domain</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="doc-desc" style="margin-top:50px;">Full library — five programs, each a variant of the component above.</p>
+      <div class="lib-grid">
+
+        <div class="lib-card" style="--accent: var(--yellow);">
+          <div><span class="lib-index">01 / Meta</span><div class="lib-name">IG Web Design System</div></div>
+          <div><p class="lib-role">TPM &amp; program lead — first design system for any Instagram web domain, 5-phase execution.</p>
+            <div class="lib-stack"><span class="lib-pill">Figma</span><span class="lib-pill">Design Tokens</span><span class="lib-pill">WCAG</span><span class="lib-pill">MCDS Alignment</span></div></div>
+          <div class="lib-impact"><span class="lib-impact-num">1st</span><span class="lib-impact-lbl">system shipped for an IG web domain</span></div>
+        </div>
+
+        <div class="lib-card" style="--accent: var(--blue);">
+          <div><span class="lib-index">02 / Meta</span><div class="lib-name">Web Experiment Tracker</div></div>
+          <div><p class="lib-role">TPM &amp; sole builder — 0-to-1 platform tool for A/B tests and surveys across Meta consumer web.</p>
+            <div class="lib-stack"><span class="lib-pill">React</span><span class="lib-pill">GraphQL</span><span class="lib-pill">Relay</span><span class="lib-pill">54 tests</span></div></div>
+          <div class="lib-impact"><span class="lib-impact-num">3–5</span><span class="lib-impact-lbl">teams with unified visibility</span></div>
+        </div>
+
+        <div class="lib-card" style="--accent: var(--green);">
+          <div><span class="lib-index">03 / Meta</span><div class="lib-name">AI Content Update Automation</div></div>
+          <div><p class="lib-role">TPM &amp; AI systems designer — CMS content-integrity agent, similarity scoring at scale.</p>
+            <div class="lib-stack"><span class="lib-pill">AI / Claude</span><span class="lib-pill">CMS</span><span class="lib-pill">XML</span></div></div>
+          <div class="lib-impact"><span class="lib-impact-num">85%</span><span class="lib-impact-lbl">reduction in task time</span></div>
+        </div>
+
+        <div class="lib-card" style="--accent: var(--orange);">
+          <div><span class="lib-index">04 / Meta</span><div class="lib-name">AI-Driven Web Dev Planning</div></div>
+          <div><p class="lib-role">TPM — redesigned kickoff-to-implementation pipeline using AI at every phase.</p>
+            <div class="lib-stack"><span class="lib-pill">AI / Claude</span><span class="lib-pill">Figma</span><span class="lib-pill">Eng Planning</span></div></div>
+          <div class="lib-impact"><span class="lib-impact-num">3mo→5wk</span><span class="lib-impact-lbl">build time</span></div>
+        </div>
+
+        <div class="lib-card" style="--accent: var(--purple);">
+          <div><span class="lib-index">05 / Google Ads via R/GA</span><div class="lib-name">SSO Personalization</div></div>
+          <div><p class="lib-role">Technical Lead — cross-functional program across product, engineering, legal, and privacy.</p>
+            <div class="lib-stack"><span class="lib-pill">GAPI</span><span class="lib-pill">OAuth 2.0</span><span class="lib-pill">A/B Testing</span></div></div>
+          <div class="lib-impact"><span class="lib-impact-num">100+</span><span class="lib-impact-lbl">locales rolled out</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="doc-section" id="about" style="border-bottom:none;">
+      <div class="doc-section-head"><h2 class="doc-title">About</h2><span class="doc-index">04 / Reference</span></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>13+ years at the intersection of design and engineering — formally trained in graphic design, experienced as a frontend engineer, now leading complex multi-team programs at Meta and Google.</p>
+          <p>I lead design systems work end to end — from roadmap and Figma architecture through accessibility documentation and org-wide adoption — and treat AI as a primary build layer, not a feature.</p>
+        </div>
+        <div>
+          <div class="stat-row"><span class="stat-num">13+</span><span class="stat-desc">concurrent workstreams across 8 disciplines</span></div>
+          <div class="stat-row"><span class="stat-num">85%</span><span class="stat-desc">documented time reduction on AI automation rollout</span></div>
+          <div class="stat-row"><span class="stat-num">1st</span><span class="stat-desc">design system led end-to-end for an Instagram web domain</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>LMDS v1.0.0 — loumontano.vercel.app · montano.lourdes@gmail.com</footer>
+
+</body>
+</html>
