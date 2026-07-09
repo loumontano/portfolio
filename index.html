@@ -378,9 +378,10 @@ footer p { font-size: 13px; color: var(--text-low); }
       </div>
       <div class="block">
         <p class="block-label">What I Built</p>
-        <p>An end-to-end AI-assisted planning pipeline: stakeholder meeting → AI-generated creative brief → Figma-to-implementation plan → AI-structured engineering ticket set. Engineers receive a complete task breakdown they can execute by feeding directly into AI tooling — with tasks already fully detailed, implementation time was reduced significantly by eliminating the back-and-forth typically needed to clarify scope and requirements.</p>
+        <p>An end-to-end AI-assisted planning pipeline: stakeholder meeting → AI-generated creative brief → Figma-to-implementation plan → AI-structured engineering ticket set. Engineers receive a complete task breakdown they can execute by feeding directly into AI tooling — with tasks already fully detailed, implementation time was reduced significantly by eliminating the back-and-forth typically needed to clarify scope and requirements.</p></div>
 
-p class="block-label">Technical Depth</p>
+<div class="block">
+<p class="block-label">Technical Depth</p>
         <p>This pipeline worked reliably because it wasn't just "AI reads a screenshot" — it fed directly on the documented, named component system I'd already built for About Instagram. AI-assisted design-to-code only holds up when components and tokens are mapped rather than inferred from pixels; without that structure, the model has to guess at spacing, color, and hierarchy from scratch every time. That's the same principle behind newer tooling like Figma's own MCP server and Code Connect, which map design components to real code so an agent reuses existing patterns instead of reinventing them. The tradeoff worth naming: business logic and interaction state don't survive design-to-code translation — Figma can't tell you what happens on a button click — so that still required a human-written spec layered on top.</p>
       </div>
       <div class="block">
