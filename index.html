@@ -267,6 +267,10 @@ footer p { font-size: 13px; color: var(--text-low); }
         <p>Authored and drove the IG Web Design System as a P1 2026 roadmap priority — the first design system for any Instagram web domain. Ran a 5-phase execution: audit and gap analysis against Meta's Centralized Design System (MCDS), module ownership assignment, a multi-stage review (internal, MCDS team, Brand), full documentation (usage guidelines, WCAG accessibility specs, dev handoff notes), and a final team-wide approval gate. Aligned naming conventions, spacing, variants, and accessibility standards to MCDS so the system would scale beyond one team, and framed the business case for reuse across IG Business and IG Creators.</p>
       </div>
       <div class="block">
+        <p class="block-label">Technical Depth</p>
+        <p>The hard part wasn't building components in isolation — it was building them to inherit from MCDS without drifting over time. I structured Figma variants and nesting to mirror MCDS's own patterns, so a token change upstream would propagate cleanly, and treated documentation as part of the architecture rather than an afterthought, so any team adopting the system later wouldn't need tribal knowledge.</p>
+      </div>
+      <div class="block">
         <p class="block-label">Impact</p>
         <div class="impact-row">
           <div class="impact-stat">
@@ -305,6 +309,10 @@ footer p { font-size: 13px; color: var(--text-low); }
         <p>A CRUD internal tool giving 3–5 teams a single, unified view of live experiment status across sites. Features include a list view and Gantt view, filtering by site and status, and access-controlled reads and writes — built entirely with AI as the primary development layer, from data model design to frontend queries. I secured buy-in from the web platform team to support with code reviews, which enabled the tool to launch.</p>
       </div>
       <div class="block">
+        <p class="block-label">Technical Depth</p>
+        <p>The real architecture decision was the data model: experiments needed to be queryable two ways — a flat list for status checks, a time-based Gantt view for spotting conflicts — off one schema, not two sources of truth. Access was scoped by team ownership so writes couldn't overwrite another team's experiment, and even with AI writing most of the code, I kept a human review gate in place for anything touching shared infrastructure.</p>
+      </div>
+      <div class="block">
         <p class="block-label">Impact</p>
         <div class="impact-row">
           <div class="impact-stat">
@@ -341,6 +349,10 @@ footer p { font-size: 13px; color: var(--text-low); }
       <div class="block">
         <p class="block-label">What I Built</p>
         <p>An AI-driven automation that detects content changes requiring CMS updates, generates the ready-to-paste XML, and creates a ticket — removing the entire manual review step. I also built a chat notification system that alerts the team the moment an update is available, and a weekly sweep to catch anything that may have been missed. The team goes from receiving a change to merging it in minutes, not quarter-hours.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">Technical Depth</p>
+        <p>The core problem was translating an unstructured content diff into valid CMS XML without a human first judging "what actually changed." I used similarity scoring to sort changes into confidence tiers — high-confidence matches auto-generate the XML, lower-confidence ones get flagged instead of force-applied, so the system fails safe. The weekly sweep exists because event-driven triggers can miss edge cases — treating this as "mostly autonomous, plus a safety net" is what got it to zero missed regressions.</p>
       </div>
       <div class="block">
         <p class="block-label">Impact</p>
@@ -421,6 +433,10 @@ footer p { font-size: 13px; color: var(--text-low); }
       <div class="block">
         <p class="block-label">What I Led</p>
         <p>Designed and shipped the Crawl phase of a three-phase personalization roadmap: an SSO card integration using GAPI, First-Party Authentication, and the Google People API to authenticate users and surface profile data — navigating legal, privacy, a11y, and multi-country/language requirements throughout. All phases gated by A/B testing.</p>
+      </div>
+      <div class="block">
+        <p class="block-label">Technical Depth</p>
+        <p>The static server with no first-party cookie support shaped every decision — a standard session-based auth pattern wasn't an option, hence GAPI plus First-Party Auth instead of a simple cookie check. Crawl-Walk-Run was risk mitigation, not just sequencing: Crawl proved the auth mechanics worked before deeper personalization layered on, and gating every phase behind A/B testing meant rollback was a config change, not a redeploy, across 100+ locales.</p>
       </div>
     </div>
   </div>
