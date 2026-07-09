@@ -394,7 +394,7 @@ footer p { font-size: 13px; color: var(--text-low); }
 
 <div class="block">
 <p class="block-label">Technical Depth</p>
-        <p>This pipeline worked reliably because it wasn't just "AI reads a screenshot" — it fed directly on the documented, named component system I'd already built for About Instagram. AI-assisted design-to-code only holds up when components and tokens are mapped rather than inferred from pixels; without that structure, the model has to guess at spacing, color, and hierarchy from scratch every time. That's the same principle behind newer tooling like Figma's own MCP server and Code Connect, which map design components to real code so an agent reuses existing patterns instead of reinventing them. The tradeoff worth naming: business logic and interaction state don't survive design-to-code translation — Figma can't tell you what happens on a button click — so that still required a human-written spec layered on top.</p>
+        <p>This pipeline worked because it fed on the documented, named component system I'd already built for About Instagram — not a screenshot. AI-assisted design-to-code only holds up when components and tokens are mapped rather than inferred from pixels, otherwise the model guesses at spacing and hierarchy every time. That's the same principle behind newer tooling like Figma's Code Connect. Worth naming: business logic and interaction state don't survive that translation, so a human-written spec still sat on top.</p>
       </div>
       <div class="block">
         <p class="block-label">Impact</p>
